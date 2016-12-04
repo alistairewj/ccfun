@@ -57,13 +57,13 @@ gen_sofa_c <- function(dt, map_, norad_, adr_=NULL, dopa_=NULL, dobu_=NULL, vaso
     if (!is.null(dopa_)) dt[get(dopa_) > 0 & get(dopa_) <= 5, "sofa_c" := 2]
 
     # SOFA = 3
-    dt[get(norad_) > 0 & get(norad_) < 0.1, "sofa_c" := 3]
+    dt[get(norad_) > 0 & get(norad_) <= 0.1, "sofa_c" := 3]
     if (!is.null(dopa_)) dt[get(dopa_) > 5 & get(dopa_) <= 15, "sofa_c" := 3]
-    if (!is.null(adr_)) dt[get(adr_) > 0 & get(adr_) < 0.1, "sofa_c" := 3]
+    if (!is.null(adr_)) dt[get(adr_) > 0 & get(adr_) <= 0.1, "sofa_c" := 3]
 
     # SOFA = 4
-    dt[get(norad_) >= 0.1, "sofa_c" := 4]
-    if (!is.null(adr_)) dt[get(adr_) >= 0.1, "sofa_c" := 4]
+    dt[get(norad_) > 0.1, "sofa_c" := 4]
+    if (!is.null(adr_)) dt[get(adr_) > 0.1, "sofa_c" := 4]
     if (!is.null(dopa_)) dt[get(dopa_) > 15 , "sofa_c" := 4]
     if (!is.null(vasop_)) dt[get(vasop_) > 0, "sofa_c" := 4]
 
