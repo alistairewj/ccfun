@@ -53,22 +53,21 @@ gen_sofa_r <- function(dt, pf_, ppv_ = NULL) {
     # Order of conditions is IMPORTANT
 
     # SOFA = 0
-    dt[get(pf_) >= 400/7.6, "sofa_r" := 0]
+    dt[get(pf_) >= 400/7.5, "sofa_r" := 0]
 
     # SOFA = 1
-    dt[get(pf_) < 400/7.6, "sofa_r" := 1]
+    dt[get(pf_) < 400/7.5, "sofa_r" := 1]
 
     # SOFA = 2
-    dt[get(pf_) < 300/7.6, "sofa_r" := 2]
+    dt[get(pf_) < 300/7.5, "sofa_r" := 2]
 
     # SOFA = 3
-    dt[get(pf_) < 200/7.6 & ppv_0, "sofa_r" := 3]
+    dt[get(pf_) < 200/7.5 & ppv_0, "sofa_r" := 3]
 
     # SOFA = 4
-    dt[get(pf_) < 100/7.6 & ppv_0, "sofa_r" := 4]
+    dt[get(pf_) < 100/7.5 & ppv_0, "sofa_r" := 4]
 
     # Tidy up dummy variables
     dt[, ppv_0 := NULL]
 
 }
-
