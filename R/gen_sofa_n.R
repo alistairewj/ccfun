@@ -60,6 +60,3 @@ gen_sofa_n <- function(dt, gcs_) {
     # }
 
 }
-
-
-

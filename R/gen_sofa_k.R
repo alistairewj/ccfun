@@ -60,5 +60,3 @@ gen_sofa_k <- function(dt, creat_, uvol24h_ = NULL) {
     if (!is.null(uvol24h_)) dt[get(uvol24h_) < 200, "sofa_k" := 4]
 
 }
-
-

@@ -51,5 +51,3 @@ gen_sofa_l <- function(dt, bili_) {
     dt[get(bili_) >= 204, "sofa_l" := 4]
 
 }
-
-
